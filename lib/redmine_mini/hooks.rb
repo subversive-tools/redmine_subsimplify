@@ -11,6 +11,13 @@ module RedmineMini
         hideSidebar: RedmineMini::Configuration.hide_sidebar?,
         hideFilters: RedmineMini::Configuration.hide_filters?,
         hideTopMenu: RedmineMini::Configuration.hide_top_menu?,
+        hideFooter: RedmineMini::Configuration.hide_footer?,
+        hideMyAccount: RedmineMini::Configuration.hide_my_account?,
+        hideOverview: RedmineMini::Configuration.hide_overview?,
+        hideUserIssues: RedmineMini::Configuration.hide_user_issues?,
+        hideUserProjects: RedmineMini::Configuration.hide_user_projects?,
+        hideUserActivity: RedmineMini::Configuration.hide_user_activity?,
+        hideUserOthers: RedmineMini::Configuration.hide_user_others?,
         allowedModules: RedmineMini::Configuration.allowed_modules
       }
 

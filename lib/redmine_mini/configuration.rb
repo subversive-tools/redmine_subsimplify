@@ -8,14 +8,27 @@ module RedmineMini
         return false if user.nil? || user.anonymous?
         return false if user.admin?  # Admins always see full UI
 
+        # Check for user preference override (Toggle button)
+        return false if user.pref[:redmine_mini_disabled] == 'true'
+
         simplified_role_ids = Setting.plugin_redmine_mini['simplified_roles'] || []
-        return false if simplified_role_ids.empty?
+        simplified_group_ids = Setting.plugin_redmine_mini['simplified_groups'] || []
+        
+        return false if simplified_role_ids.empty? && simplified_group_ids.empty?
 
-        # Convert to integers for comparison
-        simplified_role_ids = simplified_role_ids.map(&:to_i)
+        # Check Roles
+        if !simplified_role_ids.empty?
+          simplified_role_ids = simplified_role_ids.map(&:to_i)
+          return true if user.roles.any? { |role| simplified_role_ids.include?(role.id) }
+        end
 
-        # Check if user has any role that is in the simplified roles list
-        user.roles.any? { |role| simplified_role_ids.include?(role.id) }
+        # Check Groups
+        if !simplified_group_ids.empty?
+          simplified_group_ids = simplified_group_ids.map(&:to_i)
+          return true if user.groups.any? { |group| simplified_group_ids.include?(group.id) }
+        end
+
+        false
       end
 
       # Get the list of allowed module names
@@ -25,17 +38,59 @@ module RedmineMini
 
       # Check if sidebar should be hidden
       def hide_sidebar?
-        Setting.plugin_redmine_mini['hide_sidebar'] != false
+        val = Setting.plugin_redmine_mini['hide_sidebar']
+        val.nil? ? true : (val.to_s != 'false')
       end
 
       # Check if filters should be hidden
       def hide_filters?
-        Setting.plugin_redmine_mini['hide_filters'] != false
+        val = Setting.plugin_redmine_mini['hide_filters']
+        val.nil? ? true : (val.to_s != 'false')
       end
 
       # Check if top menu should be reduced
       def hide_top_menu?
-        Setting.plugin_redmine_mini['hide_top_menu'] != false
+        val = Setting.plugin_redmine_mini['hide_top_menu']
+        val.nil? ? true : (val.to_s != 'false')
+      end
+
+      # Check if footer should be hidden
+      def hide_footer?
+        val = Setting.plugin_redmine_mini['hide_footer']
+        val.nil? ? true : (val.to_s != 'false')
+      end
+
+      # Check if "My Account" should be hidden
+      def hide_my_account?
+        val = Setting.plugin_redmine_mini['hide_my_account']
+        val.nil? ? true : (val.to_s != 'false')
+      end
+
+      # Check if "Overview" should be hidden
+      def hide_overview?
+        val = Setting.plugin_redmine_mini['hide_overview']
+        val.nil? ? true : (val.to_s != 'false')
+      end
+
+      # User Profile Settings
+      def hide_user_issues?
+        val = Setting.plugin_redmine_mini['hide_user_issues']
+        val.nil? ? true : (val.to_s != 'false')
+      end
+
+      def hide_user_projects?
+        val = Setting.plugin_redmine_mini['hide_user_projects']
+        val.nil? ? true : (val.to_s != 'false')
+      end
+
+      def hide_user_activity?
+        val = Setting.plugin_redmine_mini['hide_user_activity']
+        val.nil? ? true : (val.to_s != 'false')
+      end
+
+      def hide_user_others?
+        val = Setting.plugin_redmine_mini['hide_user_others']
+        val.nil? ? true : (val.to_s != 'false')
       end
     end
   end

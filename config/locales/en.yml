@@ -1,12 +1,19 @@
 en:
   label_redmine_mini: "Redmine Mini"
   label_redmine_mini_description: "Simplified UI for specific user roles"
+  label_enable_simplified_view: "Enable Simplified View"
+  label_disable_simplified_view: "Standard View"
   
   # Settings
   label_mini_settings: "Simplified View Settings"
   label_simplified_roles: "Roles with simplified view"
   label_simplified_roles_hint: "Users with these roles will see a reduced UI"
+  label_simplified_groups: "Groups with simplified view"
+  label_simplified_groups_hint: "Combined with roles: User sees simplified view if they match Role OR Group."
   label_hide_sidebar: "Hide sidebar"
+  label_hide_footer: "Hide footer"
+  label_hide_my_account: "Hide My Account"
+  label_hide_overview: "Hide overview"
   label_hide_filters: "Hide issue filters"
   label_hide_top_menu: "Reduce top menu"
   label_allowed_modules: "Allowed modules"

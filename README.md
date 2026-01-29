@@ -11,6 +11,8 @@ Ein Redmine 6 Plugin für eine stark vereinfachte Benutzeroberfläche. Für best
   - Issue-Filter
   - Teile des Top-Menüs
   - Export-Optionen
+  - Profil-Informationen (Tickets, Projekte, Aktivität)
+- **Smart Redirect**: Automatische Weiterleitung von der Projekt-Übersicht, wenn diese deaktiviert ist
 - **Mehrsprachig**: Deutsch und Englisch
 
 ## Installation
@@ -40,6 +42,8 @@ Ein Redmine 6 Plugin für eine stark vereinfachte Benutzeroberfläche. Für best
 | **Ticket-Filter ausblenden** | Versteckt den Filter-Bereich bei Issues |
 | **Hauptmenü reduzieren** | Zeigt nur Home, My Page, Projects |
 | **Erlaubte Module** | Welche Projektmodule im Menü bleiben |
+| **"Übersicht" ausblenden & Redirect** | Versteckt den "Overview"-Reiter und leitet automatisch zu Tickets/Wiki weiter |
+| **Profil-Elemente ausblenden** | Steuert Sichtbarkeit von Tickets, Projekten, Aktivität und Details auf Benutzerprofilen |
 
 ## Hinweise
 

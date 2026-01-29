@@ -3,15 +3,56 @@
  * Dynamically hides/removes UI elements based on configuration
  */
 
-(function() {
+(function () {
   'use strict';
 
   // Wait for DOM to be ready
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var config = window.RedmineMiniConfig || {};
-    
+
     // Ensure body class is set
     document.body.classList.add('simplified-view');
+
+    // Apply granular visibility classes based on configuration
+    if (config.hideSidebar) {
+      document.body.classList.add('rm-hide-sidebar');
+    }
+
+    if (config.hideFilters) {
+      document.body.classList.add('rm-hide-filters');
+    }
+
+    if (config.hideTopMenu) {
+      document.body.classList.add('rm-hide-top-menu');
+    }
+
+    if (config.hideFooter) {
+      document.body.classList.add('rm-hide-footer');
+    }
+
+    if (config.hideMyAccount) {
+      document.body.classList.add('rm-hide-my-account');
+    }
+
+    if (config.hideOverview) {
+      document.body.classList.add('rm-hide-overview');
+    }
+
+    if (config.hideUserIssues) {
+      document.body.classList.add('rm-hide-user-issues');
+    }
+
+    if (config.hideUserProjects) {
+      document.body.classList.add('rm-hide-user-projects');
+    }
+
+    if (config.hideUserActivity) {
+      document.body.classList.add('rm-hide-user-activity');
+    }
+
+    if (config.hideUserOthers) {
+      document.body.classList.add('rm-hide-user-others');
+    }
 
     // Hide project menu items based on allowed modules
     if (config.allowedModules && config.allowedModules.length > 0) {
@@ -30,14 +71,14 @@
     if (!mainMenu) return;
 
     var menuItems = mainMenu.querySelectorAll('ul > li');
-    
-    menuItems.forEach(function(item) {
+
+    menuItems.forEach(function (item) {
       var link = item.querySelector('a');
       if (!link) return;
 
       // Extract module name from class or href
       var moduleName = getModuleName(item, link);
-      
+
       if (moduleName && !allowedModules.includes(moduleName)) {
         item.style.display = 'none';
       }
@@ -50,10 +91,10 @@
   function getModuleName(item, link) {
     // Try to get from class name (e.g., "issues", "wiki", "news")
     var classes = item.className.split(' ');
-    var moduleClasses = ['issues', 'wiki', 'news', 'documents', 'files', 
-                         'repository', 'boards', 'calendar', 'gantt', 
-                         'activity', 'roadmap', 'time-entries', 'settings'];
-    
+    var moduleClasses = ['issues', 'wiki', 'news', 'documents', 'files',
+      'repository', 'boards', 'calendar', 'gantt',
+      'activity', 'roadmap', 'time-entries', 'settings'];
+
     for (var i = 0; i < classes.length; i++) {
       if (moduleClasses.includes(classes[i])) {
         return classes[i];

@@ -4,92 +4,134 @@
  */
 
 body.simplified-view {
-  /* ===== SIDEBAR ===== */
-  #sidebar {
-    display: none !important;
-  }
+  /* Base simplified view styles if needed */
+}
 
-  /* Expand main content to full width when sidebar is hidden */
-  #main {
-    margin-right: 0 !important;
-  }
+/* ===== SIDEBAR ===== */
+body.rm-hide-sidebar #sidebar {
+  display: none !important;
+}
 
-  #content {
-    margin-right: 0 !important;
-  }
+/* Expand main content to full width when sidebar is hidden */
+body.rm-hide-sidebar #main {
+  margin-right: 0 !important;
+}
 
-  /* ===== ISSUE FILTERS ===== */
-  .query-form,
-  #query_form,
-  .filters,
-  fieldset#filters,
-  .query-columns,
-  #query_form_with_buttons {
-    display: none !important;
-  }
+body.rm-hide-sidebar #content {
+  margin-right: 0 !important;
+}
 
-  /* Hide "Apply" and filter-related buttons */
-  .buttons .icon-checked,
-  .buttons .icon-reload {
-    display: none !important;
-  }
+/* ===== ISSUE FILTERS ===== */
+body.rm-hide-filters .query-form,
+body.rm-hide-filters #query_form,
+body.rm-hide-filters .filters,
+body.rm-hide-filters fieldset#filters,
+body.rm-hide-filters .query-columns,
+body.rm-hide-filters #query_form_with_buttons {
+  display: none !important;
+}
 
-  /* ===== TOP MENU REDUCTION ===== */
-  /* Hide most top menu items - keep only essential navigation */
-  #top-menu > ul > li {
-    display: none !important;
-  }
+/* Hide "Apply" and filter-related buttons */
+body.rm-hide-filters .buttons .icon-checked,
+body.rm-hide-filters .buttons .icon-reload {
+  display: none !important;
+}
 
-  /* Show only home and my page */
-  #top-menu > ul > li.home,
-  #top-menu > ul > li.my-page,
-  #top-menu > ul > li.projects {
-    display: inline-block !important;
-  }
+/* ===== FOOTER ===== */
+body.rm-hide-footer #footer {
+  display: none !important;
+}
 
-  /* Hide administration and help links */
-  #top-menu > ul.account-menu > li:not(.login):not(.logout) {
-    /* Keep login/logout visible */
-  }
+/* ===== TOP MENU REDUCTION ===== */
+/* If hide_top_menu is enabled, hide most items */
+body.rm-hide-top-menu #top-menu>ul>li {
+  display: none !important;
+}
 
-  /* ===== CONTEXTUAL ACTIONS ===== */
-  /* Hide extra action buttons */
-  .contextual .icon-add,
-  .contextual .icon-copy,
-  .contextual .icon-del,
-  .contextual .icon-edit {
-    /* Selective hiding - adjust as needed */
-  }
+/* Show only home and projects */
+body.rm-hide-top-menu #top-menu>ul>li.home,
+body.rm-hide-top-menu #top-menu>ul>li.projects {
+  display: inline-block !important;
+}
 
-  /* Hide export options */
-  .other-formats {
-    display: none !important;
-  }
+/* "My Page" visibility - might want to keep it or hide it? 
+   let's keep it visible unless my-account is hidden or implied logic changes */
+body.rm-hide-top-menu #top-menu>ul>li.my-page {
+  display: inline-block !important;
+}
 
-  /* Hide "Also available in" links */
-  p.other-formats {
-    display: none !important;
-  }
+/* Hide "My Account" specifically if requested */
+body.rm-hide-my-account #top-menu a.my-account,
+body.rm-hide-my-account #account-nav .my-account {
+  display: none !important;
+}
 
-  /* ===== ISSUE LIST SIMPLIFICATION ===== */
-  /* Hide column configuration */
-  .query-totals {
-    display: none !important;
-  }
+/* Hide Overview Tab in Project Menu */
+body.rm-hide-overview #main-menu ul li a.overview {
+  display: none !important;
+}
 
-  /* Hide bulk edit checkboxes */
-  table.issues td.checkbox,
-  table.issues th.checkbox {
-    display: none !important;
-  }
+/* ===== USER PROFILE PAGE ===== */
+/* Only apply these on the user profile page */
 
-  /* ===== PROJECT MENU ===== */
-  /* This is handled dynamically by JavaScript based on allowed_modules config */
+/* Hide Projects List */
+body.controller-users.action-show.rm-hide-user-projects #projects,
+body.controller-users.action-show.rm-hide-user-projects .projects {
+  display: none !important;
+}
+
+/* Hide Activity Stream */
+body.controller-users.action-show.rm-hide-user-activity #activity {
+  display: none !important;
+}
+
+/* Hide Issues / Tickets */
+/* Hides "Reported issues" link or similar */
+body.controller-users.action-show.rm-hide-user-issues .issues {
+  display: none !important;
+}
+
+/* Hide Other Details (Personal Info) */
+body.controller-users.action-show.rm-hide-user-others .splitcontentleft {
+  display: none !important;
+}
+
+/* Hide administration and help links */
+body.rm-hide-top-menu #top-menu>ul.account-menu>li:not(.login):not(.logout):not(.my-account) {
+  /* This hides Help, etc. */
+  display: none !important;
+}
+
+/* ===== CONTEXTUAL ACTIONS ===== */
+/* Hide extra action buttons in simplified view */
+body.simplified-view .contextual .icon-add,
+body.simplified-view .contextual .icon-copy,
+body.simplified-view .contextual .icon-del,
+body.simplified-view .contextual .icon-edit {
+  /* Selective hiding - adjust as needed */
+}
+
+/* Hide export options */
+body.simplified-view .other-formats,
+body.simplified-view p.other-formats {
+  display: none !important;
+}
+
+/* ===== ISSUE LIST SIMPLIFICATION ===== */
+/* Hide column configuration */
+body.simplified-view .query-totals {
+  display: none !important;
+}
+
+/* Hide bulk edit checkboxes */
+body.simplified-view table.issues td.checkbox,
+body.simplified-view table.issues th.checkbox {
+  display: none !important;
 }
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media screen and (max-width: 899px) {
-  body.simplified-view #sidebar {
+  body.rm-hide-sidebar #sidebar {
     display: none !important;
   }
 }
