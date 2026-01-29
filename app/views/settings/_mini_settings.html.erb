@@ -1,0 +1,94 @@
+<h2><%= l(:label_mini_settings) %></h2>
+
+<table class="list settings">
+  <tbody>
+    <!-- Role Selection -->
+    <tr>
+      <td class="name">
+        <label><%= l(:label_simplified_roles) %></label>
+        <em class="info"><%= l(:label_simplified_roles_hint) %></em>
+      </td>
+      <td class="value">
+        <% Role.givable.sorted.each do |role| %>
+          <label style="display: block; margin-bottom: 4px;">
+            <%= check_box_tag 'settings[simplified_roles][]', 
+                              role.id, 
+                              (@settings['simplified_roles'] || []).map(&:to_s).include?(role.id.to_s),
+                              id: "settings_simplified_roles_#{role.id}" %>
+            <%= role.name %>
+          </label>
+        <% end %>
+        <!-- Hidden field to ensure empty array is submitted -->
+        <%= hidden_field_tag 'settings[simplified_roles][]', '' %>
+      </td>
+    </tr>
+
+    <!-- Hide Sidebar -->
+    <tr>
+      <td class="name">
+        <label><%= l(:label_hide_sidebar) %></label>
+      </td>
+      <td class="value">
+        <%= hidden_field_tag 'settings[hide_sidebar]', 'false' %>
+        <%= check_box_tag 'settings[hide_sidebar]', 'true', 
+            @settings['hide_sidebar'] != 'false' && @settings['hide_sidebar'] != false %>
+      </td>
+    </tr>
+
+    <!-- Hide Filters -->
+    <tr>
+      <td class="name">
+        <label><%= l(:label_hide_filters) %></label>
+      </td>
+      <td class="value">
+        <%= hidden_field_tag 'settings[hide_filters]', 'false' %>
+        <%= check_box_tag 'settings[hide_filters]', 'true', 
+            @settings['hide_filters'] != 'false' && @settings['hide_filters'] != false %>
+      </td>
+    </tr>
+
+    <!-- Hide Top Menu -->
+    <tr>
+      <td class="name">
+        <label><%= l(:label_hide_top_menu) %></label>
+      </td>
+      <td class="value">
+        <%= hidden_field_tag 'settings[hide_top_menu]', 'false' %>
+        <%= check_box_tag 'settings[hide_top_menu]', 'true', 
+            @settings['hide_top_menu'] != 'false' && @settings['hide_top_menu'] != false %>
+      </td>
+    </tr>
+
+    <!-- Allowed Modules -->
+    <tr>
+      <td class="name">
+        <label><%= l(:label_allowed_modules) %></label>
+        <em class="info"><%= l(:label_allowed_modules_hint) %></em>
+      </td>
+      <td class="value">
+        <% available_modules = [
+          ['issues', l(:label_module_issues)],
+          ['wiki', l(:label_module_wiki)],
+          ['news', l(:label_module_news)],
+          ['documents', l(:label_module_documents)],
+          ['files', l(:label_module_files)],
+          ['repository', l(:label_module_repository)],
+          ['boards', l(:label_module_boards)],
+          ['calendar', l(:label_module_calendar)],
+          ['gantt', l(:label_module_gantt)]
+        ] %>
+        <% available_modules.each do |mod_id, mod_name| %>
+          <label style="display: block; margin-bottom: 4px;">
+            <%= check_box_tag 'settings[allowed_modules][]', 
+                              mod_id, 
+                              (@settings['allowed_modules'] || ['issues', 'wiki']).include?(mod_id),
+                              id: "settings_allowed_modules_#{mod_id}" %>
+            <%= mod_name %>
+          </label>
+        <% end %>
+        <!-- Hidden field to ensure empty array is submitted -->
+        <%= hidden_field_tag 'settings[allowed_modules][]', '' %>
+      </td>
+    </tr>
+  </tbody>
+</table>

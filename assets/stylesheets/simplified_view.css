@@ -1,0 +1,95 @@
+/**
+ * Redmine Mini - Simplified View Styles
+ * Only applied when body has class 'simplified-view'
+ */
+
+body.simplified-view {
+  /* ===== SIDEBAR ===== */
+  #sidebar {
+    display: none !important;
+  }
+
+  /* Expand main content to full width when sidebar is hidden */
+  #main {
+    margin-right: 0 !important;
+  }
+
+  #content {
+    margin-right: 0 !important;
+  }
+
+  /* ===== ISSUE FILTERS ===== */
+  .query-form,
+  #query_form,
+  .filters,
+  fieldset#filters,
+  .query-columns,
+  #query_form_with_buttons {
+    display: none !important;
+  }
+
+  /* Hide "Apply" and filter-related buttons */
+  .buttons .icon-checked,
+  .buttons .icon-reload {
+    display: none !important;
+  }
+
+  /* ===== TOP MENU REDUCTION ===== */
+  /* Hide most top menu items - keep only essential navigation */
+  #top-menu > ul > li {
+    display: none !important;
+  }
+
+  /* Show only home and my page */
+  #top-menu > ul > li.home,
+  #top-menu > ul > li.my-page,
+  #top-menu > ul > li.projects {
+    display: inline-block !important;
+  }
+
+  /* Hide administration and help links */
+  #top-menu > ul.account-menu > li:not(.login):not(.logout) {
+    /* Keep login/logout visible */
+  }
+
+  /* ===== CONTEXTUAL ACTIONS ===== */
+  /* Hide extra action buttons */
+  .contextual .icon-add,
+  .contextual .icon-copy,
+  .contextual .icon-del,
+  .contextual .icon-edit {
+    /* Selective hiding - adjust as needed */
+  }
+
+  /* Hide export options */
+  .other-formats {
+    display: none !important;
+  }
+
+  /* Hide "Also available in" links */
+  p.other-formats {
+    display: none !important;
+  }
+
+  /* ===== ISSUE LIST SIMPLIFICATION ===== */
+  /* Hide column configuration */
+  .query-totals {
+    display: none !important;
+  }
+
+  /* Hide bulk edit checkboxes */
+  table.issues td.checkbox,
+  table.issues th.checkbox {
+    display: none !important;
+  }
+
+  /* ===== PROJECT MENU ===== */
+  /* This is handled dynamically by JavaScript based on allowed_modules config */
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media screen and (max-width: 899px) {
+  body.simplified-view #sidebar {
+    display: none !important;
+  }
+}

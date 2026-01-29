@@ -1,0 +1,24 @@
+en:
+  label_redmine_mini: "Redmine Mini"
+  label_redmine_mini_description: "Simplified UI for specific user roles"
+  
+  # Settings
+  label_mini_settings: "Simplified View Settings"
+  label_simplified_roles: "Roles with simplified view"
+  label_simplified_roles_hint: "Users with these roles will see a reduced UI"
+  label_hide_sidebar: "Hide sidebar"
+  label_hide_filters: "Hide issue filters"
+  label_hide_top_menu: "Reduce top menu"
+  label_allowed_modules: "Allowed modules"
+  label_allowed_modules_hint: "Only these project modules will be visible"
+  
+  # Module names
+  label_module_issues: "Issues"
+  label_module_wiki: "Wiki"
+  label_module_news: "News"
+  label_module_documents: "Documents"
+  label_module_files: "Files"
+  label_module_repository: "Repository"
+  label_module_boards: "Forums"
+  label_module_calendar: "Calendar"
+  label_module_gantt: "Gantt"

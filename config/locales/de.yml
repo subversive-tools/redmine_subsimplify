@@ -1,0 +1,24 @@
+de:
+  label_redmine_mini: "Redmine Mini"
+  label_redmine_mini_description: "Vereinfachte Oberfläche für bestimmte Benutzerrollen"
+  
+  # Settings
+  label_mini_settings: "Einstellungen für vereinfachte Ansicht"
+  label_simplified_roles: "Rollen mit vereinfachter Ansicht"
+  label_simplified_roles_hint: "Benutzer mit diesen Rollen sehen eine reduzierte Oberfläche"
+  label_hide_sidebar: "Seitenleiste ausblenden"
+  label_hide_filters: "Ticket-Filter ausblenden"
+  label_hide_top_menu: "Hauptmenü reduzieren"
+  label_allowed_modules: "Erlaubte Module"
+  label_allowed_modules_hint: "Nur diese Projektmodule werden angezeigt"
+  
+  # Module names
+  label_module_issues: "Tickets"
+  label_module_wiki: "Wiki"
+  label_module_news: "News"
+  label_module_documents: "Dokumente"
+  label_module_files: "Dateien"
+  label_module_repository: "Repository"
+  label_module_boards: "Foren"
+  label_module_calendar: "Kalender"
+  label_module_gantt: "Gantt"
