@@ -56,6 +56,7 @@ end
 # Load hooks and configuration
 require_relative 'lib/redmine_mini/hooks'
 require_relative 'lib/redmine_mini/configuration'
+require_relative 'lib/redmine_mini/wiki_sidebar_helper'
 
 # Apply Patches
 Rails.configuration.to_prepare do

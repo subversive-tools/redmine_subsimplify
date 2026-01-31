@@ -23,20 +23,45 @@ module RedmineMini
 
       output = []
       output << stylesheet_link_tag('simplified_view', plugin: 'redmine_mini')
+      output << stylesheet_link_tag('wiki_sidebar', plugin: 'redmine_mini')
       output << javascript_include_tag('simplified_view', plugin: 'redmine_mini')
+      output << javascript_include_tag('wiki_sidebar', plugin: 'redmine_mini')
       output << "<script>window.RedmineMiniConfig = #{config.to_json};</script>"
       output.join("\n").html_safe
     end
+
+    include RedmineMini::WikiSidebarHelper
 
     # Add body class for CSS targeting
     def view_layouts_base_body_bottom(context = {})
       return '' unless RedmineMini::Configuration.simplified_user?
 
-      <<-HTML.html_safe
-        <script>
-          document.body.classList.add('simplified-view');
-        </script>
-      HTML
+      output = []
+      
+      # Add class to body
+      output << '<script>document.body.classList.add("simplified-view");</script>'
+
+      # Render Wiki Sidebar if we are in a project context with wiki enabled
+      if context[:project] && context[:project].module_enabled?(:wiki)
+        sidebar_content = render_wiki_sidebar_tree(context[:project])
+        unless sidebar_content.empty?
+          output << <<~HTML
+            <div id="mini-wiki-sidebar" class="mini-wiki-sidebar">
+              <div class="mini-wiki-sidebar-toggle" onclick="toggleWikiSidebar()">
+                <span class="icon"></span>
+              </div>
+              <div class="mini-wiki-sidebar-content">
+                #{sidebar_content}
+              </div>
+            </div>
+            <script>
+              document.body.classList.add('has-mini-wiki-sidebar');
+            </script>
+          HTML
+        end
+      end
+
+      output.join("\n").html_safe
     end
   end
 end
