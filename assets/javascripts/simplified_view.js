@@ -1,5 +1,5 @@
 /**
- * Redmine Mini - Simplified View JavaScript
+ * Redmine Subsimplify - Simplified View JavaScript
  * Dynamically hides/removes UI elements based on configuration
  */
 
@@ -8,7 +8,7 @@
 
   // Wait for DOM to be ready
   document.addEventListener('DOMContentLoaded', function () {
-    var config = window.RedmineMiniConfig || {};
+    var config = window.RedmineSubsimplifyConfig || {};
 
     // Ensure body class is set
     document.body.classList.add('simplified-view');
@@ -133,12 +133,24 @@
       addFilterButton.style.display = 'none';
     }
 
-    // Hide context menu on right-click for issues (optional)
-    // This prevents access to bulk operations
-    // Uncomment if needed:
-    // document.querySelector('table.issues')?.addEventListener('contextmenu', function(e) {
-    //   e.preventDefault();
-    // });
+    // Hide "+" dropdown menu (New Object)
+    var plusMenu = document.getElementById('new-object');
+    if (plusMenu) {
+      plusMenu.style.display = 'none';
+    }
+
+    // Remove "All Projects" from Project Quick Jump Box
+    var projectJumpBox = document.getElementById('project_quick_jump_box');
+    if (projectJumpBox) {
+      // The "All Projects" option usually has an empty value or specific text
+      // We iterate to find it. Usually it is the first option or value=""
+      for (var i = 0; i < projectJumpBox.options.length; i++) {
+        if (projectJumpBox.options[i].value === '') {
+          projectJumpBox.remove(i);
+          break; // Usually only one
+        }
+      }
+    }
   }
 
 })();

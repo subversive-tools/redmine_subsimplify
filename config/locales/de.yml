@@ -1,27 +1,41 @@
 de:
-  label_redmine_mini: "Redmine Mini"
-  label_redmine_mini_description: "Vereinfachte Oberfläche für bestimmte Benutzerrollen"
+  label_redmine_subsimplify: "Redmine Subsimplify"
+  label_redmine_subsimplify_description: "Vereinfachte Oberfläche für bestimmte Benutzerrollen"
   label_enable_simplified_view: "Vereinfachte Ansicht aktivieren"
-  label_disable_simplified_view: "Standardansicht"
+  label_disable_simplified_view: "Standardansicht wiederherstellen"
   
   # Settings
+  label_mini_settings: "Allgemeine UI-Einstellungen"
   label_simplified_roles: "Rollen mit vereinfachter Ansicht"
-  label_simplified_roles_hint: "Benutzer mit diesen Rollen sehen eine reduzierte Oberfläche"
+  label_simplified_roles_hint: "Benutzer mit diesen Rollen sehen standardmäßig eine reduzierte Oberfläche."
   label_simplified_groups: "Gruppen mit vereinfachter Ansicht"
-  label_simplified_groups_hint: "Kombiniert mit Rollen: Benutzer sehen die vereinfachte Ansicht, wenn sie eine der Rollen ODER Gruppen haben."
-  label_hide_sidebar: "Seitenleiste ausblenden"
+  label_simplified_groups_hint: "Kombiniert mit Rollen: Benutzer sehen die vereinfachte Ansicht, wenn sie Mitglied einer dieser Rollen ODER einer dieser Gruppen sind."
+  
+  # Sidebar Settings
+  label_wiki_sidebar_settings: "Navigation"
+  label_mini_sidebar_mode: "Navigations-Modus"
+  label_mini_sidebar_none: "Deaktiviert (Ausgeblendet)"
+  label_mini_sidebar_wiki_only: "Nur Wiki (Aktuelles Projekt)"
+  label_mini_sidebar_project_wiki: "Wiki + Projekte (Hierarchie)"
+
+  # Hiding Elements
+  label_hide_sidebar: "Standard-Seitenleiste ausblenden"
   label_hide_filters: "Ticket-Filter ausblenden"
-  label_hide_top_menu: "Hauptmenü reduzieren"
+  label_hide_top_menu: "Hauptmenü (Top) reduzieren"
   label_hide_footer: "Fußzeile ausblenden"
-  label_hide_my_account: "Mein Konto ausblenden"
-  label_hide_overview: "Übersicht ausblenden"
-  label_hide_user_profile_section: "Elemente auf Profilseite ausblenden"
-  label_hide_user_issues: "Tickets ausblenden"
-  label_hide_user_projects: "Projekte ausblenden"
-  label_hide_user_activity: "Aktivität ausblenden"
-  label_hide_user_others: "Andere (Details) ausblenden"
-  label_allowed_modules: "Erlaubte Module"
-  label_allowed_modules_hint: "Nur diese Projektmodule werden angezeigt"
+  label_hide_my_account: "Link 'Mein Konto' ausblenden"
+  label_hide_overview: "Reiter 'Übersicht' ausblenden"
+  
+  # User Profile
+  label_hide_user_profile_section: "Benutzerprofil & Privatsphäre"
+  label_hide_user_issues: "Reiter 'Tickets' ausblenden"
+  label_hide_user_projects: "Reiter 'Projekte' ausblenden"
+  label_hide_user_activity: "Reiter 'Aktivität' ausblenden"
+  label_hide_user_others: "Sonstige Details ausblenden"
+
+  # Modules
+  label_allowed_modules: "Erlaubte Projektmodule"
+  label_allowed_modules_hint: "Nur die hier gewählten Module sind in der vereinfachten Ansicht sichtbar."
   
   # Module names
   label_module_issues: "Tickets"
@@ -29,7 +43,7 @@ de:
   label_module_news: "News"
   label_module_documents: "Dokumente"
   label_module_files: "Dateien"
-  label_module_repository: "Repository"
+  label_module_repository: "Repository / Code"
   label_module_boards: "Foren"
   label_module_calendar: "Kalender"
-  label_module_gantt: "Gantt"
+  label_module_gantt: "Gantt-Diagramm"

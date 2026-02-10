@@ -1,23 +1,41 @@
 en:
-  label_redmine_mini: "Redmine Mini"
-  label_redmine_mini_description: "Simplified UI for specific user roles"
+  label_redmine_subsimplify: "Redmine Subsimplify"
+  label_redmine_subsimplify_description: "Simplified UI for specific user roles"
   label_enable_simplified_view: "Enable Simplified View"
   label_disable_simplified_view: "Standard View"
   
   # Settings
-  label_mini_settings: "Simplified View Settings"
-  label_simplified_roles: "Roles with simplified view"
-  label_simplified_roles_hint: "Users with these roles will see a reduced UI"
-  label_simplified_groups: "Groups with simplified view"
+  label_mini_settings: "General UI Settings"
+  label_simplified_roles: "Roles with Simplified View"
+  label_simplified_roles_hint: "Users with these roles will see a reduced UI by default."
+  label_simplified_groups: "Groups with Simplified View"
   label_simplified_groups_hint: "Combined with roles: User sees simplified view if they match Role OR Group."
-  label_hide_sidebar: "Hide sidebar"
-  label_hide_footer: "Hide footer"
-  label_hide_my_account: "Hide My Account"
-  label_hide_overview: "Hide overview"
-  label_hide_filters: "Hide issue filters"
-  label_hide_top_menu: "Reduce top menu"
-  label_allowed_modules: "Allowed modules"
-  label_allowed_modules_hint: "Only these project modules will be visible"
+  
+  # Sidebar Settings
+  label_wiki_sidebar_settings: "Navigation"
+  label_mini_sidebar_mode: "Navigation Mode"
+  label_mini_sidebar_none: "Disabled (Hidden)"
+  label_mini_sidebar_wiki_only: "Wiki Only (Current Project)"
+  label_mini_sidebar_project_wiki: "Wiki + Projects (Hierarchy)"
+
+  # Hiding Elements
+  label_hide_sidebar: "Hide Standard Sidebar"
+  label_hide_footer: "Hide Footer"
+  label_hide_my_account: "Hide 'My Account'"
+  label_hide_overview: "Hide Project Overview"
+  label_hide_filters: "Hide Issue Filters"
+  label_hide_top_menu: "Simplify Top Menu"
+  
+  # User Profile
+  label_hide_user_profile_section: "User Profile Privacy"
+  label_hide_user_issues: "Hide Issues Tab"
+  label_hide_user_projects: "Hide Projects Tab"
+  label_hide_user_activity: "Hide Activity Tab"
+  label_hide_user_others: "Hide Other Details"
+
+  # Modules
+  label_allowed_modules: "Allowed Project Modules"
+  label_allowed_modules_hint: "Only these project modules will be visible in the simplified view."
   
   # Module names
   label_module_issues: "Issues"

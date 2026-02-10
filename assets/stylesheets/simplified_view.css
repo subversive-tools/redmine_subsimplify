@@ -1,6 +1,6 @@
 /**
- * Redmine Mini - Simplified View Styles
- * Only applied when body has class 'simplified-view'
+ * Redmine Subsimplify - Simplified View Styles
+ * Hides unwanted UI elements and cleans up the interface
  */
 
 body.simplified-view {
