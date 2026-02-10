@@ -5,7 +5,7 @@ en:
   label_disable_simplified_view: "Standard View"
   
   # Settings
-  label_mini_settings: "General UI Settings"
+  label_ui_simplification: "UI Simplification"
   label_simplified_roles: "Roles with Simplified View"
   label_simplified_roles_hint: "Users with these roles will see a reduced UI by default."
   label_simplified_groups: "Groups with Simplified View"
@@ -27,7 +27,7 @@ en:
   label_hide_top_menu: "Simplify Top Menu"
   
   # User Profile
-  label_hide_user_profile_section: "User Profile Privacy"
+  label_user_profile_privacy: "User Profile Privacy"
   label_hide_user_issues: "Hide Issues Tab"
   label_hide_user_projects: "Hide Projects Tab"
   label_hide_user_activity: "Hide Activity Tab"

@@ -5,7 +5,7 @@ de:
   label_disable_simplified_view: "Standardansicht wiederherstellen"
   
   # Settings
-  label_mini_settings: "Allgemeine UI-Einstellungen"
+  label_ui_simplification: "Allgemeine UI-Einstellungen"
   label_simplified_roles: "Rollen mit vereinfachter Ansicht"
   label_simplified_roles_hint: "Benutzer mit diesen Rollen sehen standardmäßig eine reduzierte Oberfläche."
   label_simplified_groups: "Gruppen mit vereinfachter Ansicht"
@@ -27,7 +27,7 @@ de:
   label_hide_overview: "Reiter 'Übersicht' ausblenden"
   
   # User Profile
-  label_hide_user_profile_section: "Benutzerprofil & Privatsphäre"
+  label_user_profile_privacy: "Benutzerprofil & Privatsphäre"
   label_hide_user_issues: "Reiter 'Tickets' ausblenden"
   label_hide_user_projects: "Reiter 'Projekte' ausblenden"
   label_hide_user_activity: "Reiter 'Aktivität' ausblenden"

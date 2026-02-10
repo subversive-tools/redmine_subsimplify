@@ -1,0 +1,75 @@
+<p>
+  <label><%= l(:label_simplified_roles) %></label>
+  <br />
+  <% Role.sorted.each do |role| %>
+    <label class="floating">
+      <%= check_box_tag 'settings[simplified_roles][]', role.id, @settings['simplified_roles'].include?(role.id.to_s) %>
+      <%= role.name %>
+    </label>
+  <% end %>
+  <%= hidden_field_tag 'settings[simplified_roles][]', '' %>
+</p>
+
+<p>
+  <label><%= l(:label_simplified_groups) %></label>
+  <br />
+  <% Group.sorted.each do |group| %>
+    <label class="floating">
+      <%= check_box_tag 'settings[simplified_groups][]', group.id, @settings['simplified_groups'].include?(group.id.to_s) %>
+      <%= group.name %>
+    </label>
+  <% end %>
+  <%= hidden_field_tag 'settings[simplified_groups][]', '' %>
+</p>
+
+<fieldset class="box"><legend><%= l(:label_ui_simplification) %></legend>
+  <p>
+    <label><%= l(:label_hide_sidebar) %></label>
+    <%= check_box_tag 'settings[hide_sidebar]', true, @settings['hide_sidebar'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_filters) %></label>
+    <%= check_box_tag 'settings[hide_filters]', true, @settings['hide_filters'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_top_menu) %></label>
+    <%= check_box_tag 'settings[hide_top_menu]', true, @settings['hide_top_menu'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_footer) %></label>
+    <%= check_box_tag 'settings[hide_footer]', true, @settings['hide_footer'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_my_account) %></label>
+    <%= check_box_tag 'settings[hide_my_account]', true, @settings['hide_my_account'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_overview) %></label>
+    <%= check_box_tag 'settings[hide_overview]', true, @settings['hide_overview'] %>
+  </p>
+</fieldset>
+
+<fieldset class="box"><legend><%= l(:label_allowed_modules) %></legend>
+  <p>
+    <%= select_tag 'settings[allowed_modules]', options_for_select(Redmine::AccessControl.permissions.map(&:project_module).uniq.compact.sort.map(&:to_s), @settings['allowed_modules']), multiple: true, style: 'width: 100%; height: 200px;' %>
+  </p>
+</fieldset>
+
+<fieldset class="box"><legend><%= l(:label_user_profile_privacy) %></legend>
+  <p>
+    <label><%= l(:label_hide_user_issues) %></label>
+    <%= check_box_tag 'settings[hide_user_issues]', true, @settings['hide_user_issues'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_user_projects) %></label>
+    <%= check_box_tag 'settings[hide_user_projects]', true, @settings['hide_user_projects'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_user_activity) %></label>
+    <%= check_box_tag 'settings[hide_user_activity]', true, @settings['hide_user_activity'] %>
+  </p>
+  <p>
+    <label><%= l(:label_hide_user_others) %></label>
+    <%= check_box_tag 'settings[hide_user_others]', true, @settings['hide_user_others'] %>
+  </p>
+</fieldset>
