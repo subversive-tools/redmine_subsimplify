@@ -11,7 +11,25 @@ module RedmineSubsimplify
         
         # 1. Global Context (No Project)
         unless @project
-          # Not yet implemented in v0.1.0
+          # List of global controllers to block
+          blocked_global_controllers = ['projects', 'issues', 'activities', 'news', 'gantts', 'calendars']
+          
+          if blocked_global_controllers.include?(controller_name)
+            # Try to find the first project the user has access to
+            first_project = User.current.projects.visible.first
+            
+            if first_project
+              # Redirect to the first allowed module of the first visible project
+              redirect_to_project_module(first_project)
+              return
+            else
+              # If the user has no visible projects, redirect to the home page
+              redirect_to home_path
+              return
+            end
+          end
+          
+          # If not a blocked controller, allow (e.g. My Page, Account, etc.)
           return
         end
 
