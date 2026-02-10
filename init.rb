@@ -5,11 +5,11 @@ Redmine::Plugin.register :redmine_subsimplify do
   name 'Redmine Subsimplify'
   author 'Stefan Mischke'
   description 'Provides a simplified UI for specific users - showing only Wiki and Issues with minimal UI clutter'
-  version '0.1.1'
+  version '0.2.0'
   url 'https://github.com/modoq/redmine_subsimplify'
   author_url 'https://github.com/modoq'
   
-  # requires_redmine :version_or_higher => '5.0.0'
+  requires_redmine :version_or_higher => '5.0.0'
 
   # Plugin settings
   settings default: {
