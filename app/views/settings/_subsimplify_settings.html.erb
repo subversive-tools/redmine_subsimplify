@@ -1,26 +1,22 @@
-<p>
-  <label><%= l(:label_simplified_roles) %></label>
-  <br />
+<fieldset class="box"><legend><%= l(:label_simplified_roles) %></legend>
   <% Role.sorted.each do |role| %>
-    <label class="floating">
-      <%= check_box_tag 'settings[simplified_roles][]', role.id, @settings['simplified_roles'].include?(role.id.to_s) %>
-      <%= role.name %>
-    </label>
+    <p>
+      <label><%= role.name %></label>
+      <%= check_box_tag 'settings[simplified_roles][]', role.id, (@settings['simplified_roles'] || []).include?(role.id.to_s) %>
+    </p>
   <% end %>
   <%= hidden_field_tag 'settings[simplified_roles][]', '' %>
-</p>
+</fieldset>
 
-<p>
-  <label><%= l(:label_simplified_groups) %></label>
-  <br />
+<fieldset class="box"><legend><%= l(:label_simplified_groups) %></legend>
   <% Group.sorted.each do |group| %>
-    <label class="floating">
-      <%= check_box_tag 'settings[simplified_groups][]', group.id, @settings['simplified_groups'].include?(group.id.to_s) %>
-      <%= group.name %>
-    </label>
+    <p>
+      <label><%= group.name %></label>
+      <%= check_box_tag 'settings[simplified_groups][]', group.id, (@settings['simplified_groups'] || []).include?(group.id.to_s) %>
+    </p>
   <% end %>
   <%= hidden_field_tag 'settings[simplified_groups][]', '' %>
-</p>
+</fieldset>
 
 <fieldset class="box"><legend><%= l(:label_ui_simplification) %></legend>
   <p>
@@ -50,9 +46,13 @@
 </fieldset>
 
 <fieldset class="box"><legend><%= l(:label_allowed_modules) %></legend>
-  <p>
-    <%= select_tag 'settings[allowed_modules]', options_for_select(Redmine::AccessControl.permissions.map(&:project_module).uniq.compact.sort.map(&:to_s), @settings['allowed_modules']), multiple: true, style: 'width: 100%; height: 200px;' %>
-  </p>
+  <% Redmine::AccessControl.permissions.map(&:project_module).uniq.compact.sort.each do |mod| %>
+    <p>
+      <label><%= l("label_module_#{mod}", default: mod.to_s.humanize) %></label>
+      <%= check_box_tag 'settings[allowed_modules][]', mod, (@settings['allowed_modules'] || []).include?(mod.to_s) %>
+    </p>
+  <% end %>
+  <%= hidden_field_tag 'settings[allowed_modules][]', '' %>
 </fieldset>
 
 <fieldset class="box"><legend><%= l(:label_user_profile_privacy) %></legend>
