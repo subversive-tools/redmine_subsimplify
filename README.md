@@ -73,7 +73,7 @@ Navigate to **Administration > Plugins > Redmine Subsimplify > Configure**.
 
 | Option | Description |
 |:---|:---|
-| **Allowed Project Modules** | Check which modules (Issues, Wiki, News, etc.) remain visible in the project menu. All others are hidden. |
+| **Allowed Project Modules** | **Strict Whitelist**: Only checked modules remain visible. New modules from other plugins are **hidden by default** until explicitly allowed here. |
 
 ### User Profile Privacy
 

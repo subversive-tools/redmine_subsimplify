@@ -1,4 +1,5 @@
 <fieldset class="box"><legend><%= l(:label_simplified_roles) %></legend>
+  <p style="color: #888; font-style: italic; margin-top: 0; margin-bottom: 10px;"><%= l(:label_simplified_roles_hint) %></p>
   <% Role.sorted.each do |role| %>
     <p>
       <label><%= role.name %></label>
@@ -9,6 +10,7 @@
 </fieldset>
 
 <fieldset class="box"><legend><%= l(:label_simplified_groups) %></legend>
+  <p style="color: #888; font-style: italic; margin-top: 0; margin-bottom: 10px;"><%= l(:label_simplified_groups_hint) %></p>
   <% Group.sorted.each do |group| %>
     <p>
       <label><%= group.name %></label>
@@ -19,6 +21,8 @@
 </fieldset>
 
 <fieldset class="box"><legend><%= l(:label_ui_simplification) %></legend>
+  <p style="color: #888; font-style: italic; margin-top: 0; margin-bottom: 10px;"><%= l(:label_ui_simplification_hint) %></p>
+  <p style="margin-bottom: 5px;"><%= l(:label_to_hide) %></p>
   <p>
     <label><%= l(:label_hide_sidebar) %></label>
     <%= check_box_tag 'settings[hide_sidebar]', true, @settings['hide_sidebar'] %>
@@ -46,16 +50,46 @@
 </fieldset>
 
 <fieldset class="box"><legend><%= l(:label_allowed_modules) %></legend>
-  <% Redmine::AccessControl.permissions.map(&:project_module).uniq.compact.sort.each do |mod| %>
+  <p style="color: #888; font-style: italic; margin-top: 0; margin-bottom: 10px;"><%= l(:label_allowed_modules_hint) %></p>
+  <p style="margin-bottom: 5px;"><%= l(:label_to_show) %></p>
+  <% 
+    # Get all available modules
+    all_modules = Redmine::AccessControl.permissions.map(&:project_module).uniq.compact.map(&:to_s)
+    all_modules << 'activity' unless all_modules.include?('activity')
+    
+    # Define standard order
+    priority_order = [
+      'activity',
+      'issue_tracking', 
+      'gantt', 
+      'calendar', 
+      'news', 
+      'documents', 
+      'wiki', 
+      'boards', 
+      'files', 
+      'repository'
+    ]
+    
+    # Sort: Priority ones first (in order), then others alphabetically
+    sorted_modules = all_modules.sort_by do |mod| 
+      idx = priority_order.index(mod)
+      [idx ? 0 : 1, idx || mod]
+    end
+
+    sorted_modules.each do |mod| 
+  %>
     <p>
-      <label><%= l("label_module_#{mod}", default: mod.to_s.humanize) %></label>
-      <%= check_box_tag 'settings[allowed_modules][]', mod, (@settings['allowed_modules'] || []).include?(mod.to_s) %>
+      <label><%= l("label_module_#{mod}", default: mod.humanize) %></label>
+      <%= check_box_tag 'settings[allowed_modules][]', mod, (@settings['allowed_modules'] || []).include?(mod) %>
     </p>
   <% end %>
   <%= hidden_field_tag 'settings[allowed_modules][]', '' %>
 </fieldset>
 
 <fieldset class="box"><legend><%= l(:label_user_profile_privacy) %></legend>
+  <p style="color: #888; font-style: italic; margin-top: 0; margin-bottom: 10px;"><%= l(:label_user_profile_privacy_hint) %></p>
+  <p style="margin-bottom: 5px;"><%= l(:label_to_hide) %></p>
   <p>
     <label><%= l(:label_hide_user_issues) %></label>
     <%= check_box_tag 'settings[hide_user_issues]', true, @settings['hide_user_issues'] %>

@@ -60,11 +60,21 @@ module RedmineSubsimplify
                          module_name
                        end
 
+
+
           allowed = RedmineSubsimplify::Configuration.allowed_modules
           
-          unless allowed.include?(config_key)
-            redirect_to_project_module(@project)
-            return
+          # Special handling for Activity (which has no dedicated project_module permission usually, but we want to control it)
+          if config_key == 'activity'
+             unless allowed.include?('activity')
+               redirect_to_project_module(@project)
+               return
+             end
+          else
+             unless allowed.include?(config_key)
+               redirect_to_project_module(@project)
+               return
+             end
           end
         end
       end
@@ -72,25 +82,37 @@ module RedmineSubsimplify
       private
 
       def redirect_to_project_module(project)
+        # List of all possible modules in order of preference
+        possible_modules = [
+          'issues', 'wiki', 'news', 'documents', 'files', 
+          'boards', 'repository', 'calendar', 'gantt'
+        ]
+        
         allowed = RedmineSubsimplify::Configuration.allowed_modules
         
-        if allowed.include?('issues')
+        # Find the first module that IS in the allowed list AND enabled in the project
+        first_allowed = possible_modules.detect do |mod| 
+          allowed.include?(mod) && project.module_enabled?(mod)
+        end
+
+        case first_allowed
+        when 'issues'
           redirect_to project_issues_path(project)
-        elsif allowed.include?('wiki')
+        when 'wiki'
           redirect_to project_wiki_path(project, nil)
-        elsif allowed.include?('news')
+        when 'news'
           redirect_to project_news_index_path(project)
-        elsif allowed.include?('documents')
+        when 'documents'
           redirect_to project_documents_path(project)
-        elsif allowed.include?('files')
+        when 'files'
           redirect_to project_files_path(project)
-        elsif allowed.include?('boards')
+        when 'boards'
           redirect_to project_boards_path(project)
-        elsif allowed.include?('repository')
+        when 'repository'
           redirect_to project_repository_path(project)
-        elsif allowed.include?('calendar')
+        when 'calendar'
           redirect_to project_calendar_path(project)
-        elsif allowed.include?('gantt')
+        when 'gantt'
           redirect_to project_gantt_path(project)
         else
           # Fallback: redirect to home if no module is allowed

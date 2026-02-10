@@ -5,7 +5,9 @@ en:
   label_disable_simplified_view: "Standard View"
   
   # Settings
-  label_ui_simplification: "UI Simplification"
+  label_to_hide: "to hide:"
+  label_ui_simplification: "UI"
+  label_ui_simplification_hint: "Select which interface elements should be hidden for simplified users."
   label_simplified_roles: "Roles with Simplified View"
   label_simplified_roles_hint: "Users with these roles will see a reduced UI by default."
   label_simplified_groups: "Groups with Simplified View"
@@ -27,7 +29,8 @@ en:
   label_hide_top_menu: "Simplify Top Menu"
   
   # User Profile
-  label_user_profile_privacy: "User Profile Privacy"
+  label_user_profile_privacy: "User Profile"
+  label_user_profile_privacy_hint: "Control visibility of tabs and information on user profile pages."
   label_hide_user_issues: "Hide Issues Tab"
   label_hide_user_projects: "Hide Projects Tab"
   label_hide_user_activity: "Hide Activity Tab"
@@ -35,7 +38,8 @@ en:
 
   # Modules
   label_allowed_modules: "Allowed Project Modules"
-  label_allowed_modules_hint: "Only these project modules will be visible in the simplified view."
+  label_allowed_modules_hint: "Unchecked modules will be hidden in the simplified view. Users can only access the selected modules."
+  label_to_show: "Show:"
   
   # Module names
   label_module_issues: "Issues"
@@ -46,4 +50,6 @@ en:
   label_module_repository: "Repository"
   label_module_boards: "Forums"
   label_module_calendar: "Calendar"
+  label_module_calendar: "Calendar"
   label_module_gantt: "Gantt"
+  label_module_activity: "Activity"

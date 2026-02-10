@@ -41,6 +41,22 @@ module RedmineSubsimplify
       Setting.plugin_redmine_subsimplify['hide_overview'] == 'true' || Setting.plugin_redmine_subsimplify['hide_overview'] == true
     end
 
+    def self.hide_user_issues?
+      Setting.plugin_redmine_subsimplify['hide_user_issues'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_issues'] == true
+    end
+
+    def self.hide_user_projects?
+      Setting.plugin_redmine_subsimplify['hide_user_projects'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_projects'] == true
+    end
+
+    def self.hide_user_activity?
+      Setting.plugin_redmine_subsimplify['hide_user_activity'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_activity'] == true
+    end
+
+    def self.hide_user_others?
+      Setting.plugin_redmine_subsimplify['hide_user_others'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_others'] == true
+    end
+
     def self.allowed_modules
       Setting.plugin_redmine_subsimplify['allowed_modules'] || []
     end

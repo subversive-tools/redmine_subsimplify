@@ -5,12 +5,14 @@ de:
   label_disable_simplified_view: "Standardansicht wiederherstellen"
   
   # Settings
+  label_to_hide: "Verstecken:"
   label_ui_simplification: "Allgemeine UI-Einstellungen"
+  label_ui_simplification_hint: "Wählen Sie, welche Elemente für vereinfachte Benutzer ausgeblendet werden sollen."
   label_simplified_roles: "Rollen mit vereinfachter Ansicht"
   label_simplified_roles_hint: "Benutzer mit diesen Rollen sehen standardmäßig eine reduzierte Oberfläche."
   label_simplified_groups: "Gruppen mit vereinfachter Ansicht"
   label_simplified_groups_hint: "Kombiniert mit Rollen: Benutzer sehen die vereinfachte Ansicht, wenn sie Mitglied einer dieser Rollen ODER einer dieser Gruppen sind."
-  
+
   # Sidebar Settings
   label_wiki_sidebar_settings: "Navigation"
   label_mini_sidebar_mode: "Navigations-Modus"
@@ -27,7 +29,8 @@ de:
   label_hide_overview: "Reiter 'Übersicht' ausblenden"
   
   # User Profile
-  label_user_profile_privacy: "Benutzerprofil & Privatsphäre"
+  label_user_profile_privacy: "Zu versteckende Profilelemente"
+  label_user_profile_privacy_hint: "Steuern Sie die Sichtbarkeit von Reitern und Informationen auf Benutzerprofilen."
   label_hide_user_issues: "Reiter 'Tickets' ausblenden"
   label_hide_user_projects: "Reiter 'Projekte' ausblenden"
   label_hide_user_activity: "Reiter 'Aktivität' ausblenden"
@@ -35,7 +38,8 @@ de:
 
   # Modules
   label_allowed_modules: "Erlaubte Projektmodule"
-  label_allowed_modules_hint: "Nur die hier gewählten Module sind in der vereinfachten Ansicht sichtbar."
+  label_allowed_modules_hint: "Nicht ausgewählte Module werden ausgeblendet. Benutzer haben nur Zugriff auf die hier angehakten Module."
+  label_to_show: "Anzeigen:"
   
   # Module names
   label_module_issues: "Tickets"
@@ -46,4 +50,6 @@ de:
   label_module_repository: "Repository / Code"
   label_module_boards: "Foren"
   label_module_calendar: "Kalender"
+  label_module_calendar: "Kalender"
   label_module_gantt: "Gantt-Diagramm"
+  label_module_activity: "Aktivität"

@@ -25,7 +25,7 @@ Redmine::Plugin.register :redmine_subsimplify do
     'hide_footer' => true,
     'hide_my_account' => true,
     'hide_overview' => true,
-    'allowed_modules' => ['issues', 'wiki']
+    'allowed_modules' => []
   }, partial: 'settings/subsimplify_settings'
 
   # Menu removed in v0.2.3
