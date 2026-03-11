@@ -35,6 +35,7 @@ en:
   label_hide_user_projects: "Hide Projects Tab"
   label_hide_user_activity: "Hide Activity Tab"
   label_hide_user_others: "Hide Other Details"
+  label_hide_user_profile_links: "Hide Link to User Profile"
 
   # Modules
   label_allowed_modules: "Allowed Project Modules"
@@ -53,3 +54,7 @@ en:
   label_module_calendar: "Calendar"
   label_module_gantt: "Gantt"
   label_module_activity: "Activity"
+
+  # Custom CSS Hide
+  label_custom_css_hiding: "Hide Custom CSS Elements"
+  label_custom_css_hiding_hint: "Enter CSS selectors (one per line, e.g. #top-menu or .my-class) that should be hidden for simplified users. Note: Elements are still present in the DOM, just visually hidden."

@@ -1,6 +1,6 @@
 # Redmine Subsimplify Plugin
 
-![Version](https://img.shields.io/badge/version-0.2.4-blue.svg)
+![Version](https://img.shields.io/badge/version-0.2.5-blue.svg)
 ![Redmine](https://img.shields.io/badge/Redmine-5.0%20%7C%206.0-red.svg?logo=redmine)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 

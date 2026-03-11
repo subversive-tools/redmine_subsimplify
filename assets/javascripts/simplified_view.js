@@ -54,6 +54,10 @@
       document.body.classList.add('rm-hide-user-others');
     }
 
+    if (config.hideUserProfileLinks) {
+      document.body.classList.add('rm-hide-user-profile-links');
+    }
+
     // Hide project menu items based on allowed modules (Whitelist)
     if (config.allowedModules) {
       applyModuleWhitelist(config.allowedModules);
@@ -63,18 +67,31 @@
     hideExtraElements();
   });
 
-  /**
-   * Apply whitelist logic: Hide all project menu items unless they are in allowedModules
-   */
   function applyModuleWhitelist(allowedModules) {
     var mainMenu = document.getElementById('main-menu');
     if (!mainMenu) return;
 
-    var menuItems = mainMenu.querySelectorAll('ul > li');
+    // Only select top-level li elements, not nested ones (like in the + dropdown)
+    var menuItems = mainMenu.querySelectorAll(':scope > ul > li');
+    var visibleCount = 0;
 
     menuItems.forEach(function (item) {
-      var link = item.querySelector('a');
+      var link = item.querySelector(':scope > a');
       if (!link) return;
+
+      // Check if the item is already hidden by Redmine or CSS (e.g., Activity tab)
+      // This happens because `rm-hide-user-activity` might hide the `#activity` section, 
+      // but if the tab itself is styled away, we shouldn't count it. 
+      // A more robust check: does it have display:none?
+      var computedStyle = window.getComputedStyle(item);
+      if (computedStyle.display === 'none') {
+        return; // Already hidden, don't count it
+      }
+
+      // Safeguard: Do not process or hide the new-object menu if it is a list item here
+      if (item.id === 'new-object' || item.querySelector('#new-object') || (link && link.classList.contains('new-object'))) {
+        return;
+      }
 
       // Extract module name
       var moduleName = getModuleName(item, link);
@@ -85,12 +102,29 @@
       if (moduleName) {
         if (!allowedModules.includes(moduleName)) {
           item.style.display = 'none';
+        } else {
+          visibleCount++;
         }
       } else {
         // Unknown module -> Hide by default for safety
         item.style.display = 'none';
       }
     });
+
+    // Hide the remaining tab if there is 1 or 0 tabs visible, but keep the + menu
+    if (visibleCount <= 1) {
+      document.body.classList.add('rm-single-tab');
+      
+      // Instead of hiding the whole menu, hide all items EXCEPT the + menu
+      menuItems.forEach(function (item) {
+        var link = item.querySelector(':scope > a');
+        if (item.id === 'new-object' || item.querySelector('#new-object') || (link && link.classList.contains('new-object'))) {
+          // Keep the + menu visible
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
   }
 
   /**
@@ -169,11 +203,7 @@
       addFilterButton.style.display = 'none';
     }
 
-    // Hide "+" dropdown menu (New Object)
-    var plusMenu = document.getElementById('new-object');
-    if (plusMenu) {
-      plusMenu.style.display = 'none';
-    }
+    // "+" dropdown menu (New Object) is intentionally left intact for simplified users.
 
     // Remove "All Projects" from Project Quick Jump Box
     var projectJumpBox = document.getElementById('project_quick_jump_box');

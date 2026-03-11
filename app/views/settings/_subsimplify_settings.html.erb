@@ -44,6 +44,10 @@
     <%= check_box_tag 'settings[hide_my_account]', true, @settings['hide_my_account'] %>
   </p>
   <p>
+    <label><%= l(:label_hide_user_profile_links) %></label>
+    <%= check_box_tag 'settings[hide_user_profile_links]', true, @settings['hide_user_profile_links'], id: 'settings_hide_user_profile_links' %>
+  </p>
+  <p>
     <label><%= l(:label_hide_overview) %></label>
     <%= check_box_tag 'settings[hide_overview]', true, @settings['hide_overview'] %>
   </p>
@@ -87,7 +91,7 @@
   <%= hidden_field_tag 'settings[allowed_modules][]', '' %>
 </fieldset>
 
-<fieldset class="box"><legend><%= l(:label_user_profile_privacy) %></legend>
+<fieldset class="box" id="profile_privacy_settings"><legend><%= l(:label_user_profile_privacy) %></legend>
   <p style="color: #888; font-style: italic; margin-top: 0; margin-bottom: 10px;"><%= l(:label_user_profile_privacy_hint) %></p>
   <p style="margin-bottom: 5px;"><%= l(:label_to_hide) %></p>
   <p>
@@ -107,3 +111,31 @@
     <%= check_box_tag 'settings[hide_user_others]', true, @settings['hide_user_others'] %>
   </p>
 </fieldset>
+
+<fieldset class="box"><legend><%= l(:label_custom_css_hiding) %></legend>
+  <p style="color: #888; font-style: italic; margin-top: 0; margin-bottom: 10px;"><%= l(:label_custom_css_hiding_hint) %></p>
+  <p>
+    <%= text_area_tag 'settings[custom_hidden_selectors]', @settings['custom_hidden_selectors'], rows: 5, style: "width: 100%; box-sizing: border-box; font-family: monospace;" %>
+  </p>
+</fieldset>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var globalProfileCheck = $('#settings_hide_user_profile_links');
+    var profilePrivacyBox = $('#profile_privacy_settings');
+
+    function toggleProfilePrivacyBox() {
+      if (globalProfileCheck.is(':checked')) {
+        profilePrivacyBox.hide();
+      } else {
+        profilePrivacyBox.show();
+      }
+    }
+
+    // Run on load
+    toggleProfilePrivacyBox();
+
+    // Run on change
+    globalProfileCheck.change(toggleProfilePrivacyBox);
+  });
+</script>

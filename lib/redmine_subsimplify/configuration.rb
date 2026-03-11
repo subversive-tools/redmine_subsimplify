@@ -42,19 +42,32 @@ module RedmineSubsimplify
     end
 
     def self.hide_user_issues?
+      return true if hide_user_profile_links?
       Setting.plugin_redmine_subsimplify['hide_user_issues'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_issues'] == true
     end
 
     def self.hide_user_projects?
+      return true if hide_user_profile_links?
       Setting.plugin_redmine_subsimplify['hide_user_projects'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_projects'] == true
     end
 
     def self.hide_user_activity?
+      return true if hide_user_profile_links?
       Setting.plugin_redmine_subsimplify['hide_user_activity'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_activity'] == true
     end
 
     def self.hide_user_others?
+      return true if hide_user_profile_links?
       Setting.plugin_redmine_subsimplify['hide_user_others'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_others'] == true
+    end
+
+    def self.hide_user_profile_links?
+      Setting.plugin_redmine_subsimplify['hide_user_profile_links'] == 'true' || Setting.plugin_redmine_subsimplify['hide_user_profile_links'] == true
+    end
+
+    def self.custom_hidden_selectors
+      raw = Setting.plugin_redmine_subsimplify['custom_hidden_selectors'] || ""
+      raw.split("\n").map(&:strip).reject(&:blank?)
     end
 
     def self.allowed_modules

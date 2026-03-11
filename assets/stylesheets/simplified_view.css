@@ -66,8 +66,26 @@ body.rm-hide-my-account #account-nav .my-account {
   display: none !important;
 }
 
+/* ===== MAIN MENU SIMPLIFICATION ===== */
+
 /* Hide Overview Tab in Project Menu */
 body.rm-hide-overview #main-menu ul li a.overview {
+  display: none !important;
+}
+
+/* Hide the tab-buttons if only 1 tab is visible (handled by JS class) */
+body.rm-single-tab #main-menu {
+  background: none !important;
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+
+body.rm-single-tab #main-menu ul {
+  border-bottom: none !important;
+}
+
+body.rm-single-tab #main-menu .tabs-buttons,
+body.rm-single-tab .tabs-buttons {
   display: none !important;
 }
 
@@ -75,25 +93,41 @@ body.rm-hide-overview #main-menu ul li a.overview {
 /* Only apply these on the user profile page */
 
 /* Hide Projects List */
-body.controller-users.action-show.rm-hide-user-projects #projects,
-body.controller-users.action-show.rm-hide-user-projects .projects {
+body.controller-users.rm-hide-user-projects #projects,
+body.controller-users.rm-hide-user-projects .projects,
+body.controller-users.rm-hide-user-projects h3:has(+ #projects),
+body.controller-users.rm-hide-user-projects h3:has(+ .projects) {
   display: none !important;
 }
 
 /* Hide Activity Stream */
-body.controller-users.action-show.rm-hide-user-activity #activity {
+body.controller-users.rm-hide-user-activity #activity,
+body.controller-users.rm-hide-user-activity h3:has(+ #activity) {
   display: none !important;
 }
 
 /* Hide Issues / Tickets */
 /* Hides "Reported issues" link or similar */
-body.controller-users.action-show.rm-hide-user-issues .issues {
+body.controller-users.rm-hide-user-issues .issue-report,
+body.controller-users.rm-hide-user-issues h3:has(+ .issue-report),
+body.controller-users.rm-hide-user-issues h3:has(~ .issue-report) {
   display: none !important;
 }
 
 /* Hide Other Details (Personal Info) */
-body.controller-users.action-show.rm-hide-user-others .splitcontentleft {
+/* Only hide the list of details, not the entire left column (which contains projects) */
+body.controller-users.rm-hide-user-others .splitcontentleft > ul,
+body.controller-users.rm-hide-user-others .splitcontentleft > div:not(#projects):not(.projects):not(.issue-report) {
   display: none !important;
+}
+
+/* Global: Disable User Profile Links */
+/* Makes links to user profiles behave and look like normal text */
+body.rm-hide-user-profile-links a.user {
+  pointer-events: none !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: default !important;
 }
 
 /* Hide administration and help links */

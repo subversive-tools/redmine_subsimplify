@@ -35,6 +35,7 @@ de:
   label_hide_user_projects: "Reiter 'Projekte' ausblenden"
   label_hide_user_activity: "Reiter 'Aktivität' ausblenden"
   label_hide_user_others: "Sonstige Details ausblenden"
+  label_hide_user_profile_links: "Link zum User-Profil ausblenden"
 
   # Modules
   label_allowed_modules: "Erlaubte Projektmodule"
@@ -53,3 +54,7 @@ de:
   label_module_calendar: "Kalender"
   label_module_gantt: "Gantt-Diagramm"
   label_module_activity: "Aktivität"
+
+  # Custom CSS Hide
+  label_custom_css_hiding: "Benutzerdefinierte CSS-Elemente ausblenden"
+  label_custom_css_hiding_hint: "Geben Sie pro Zeile einen CSS-Selektor ein (z.B. #top-menu oder .my-class), der für vereinfachte Nutzer ausgeblendet werden soll. Achtung: Die Elemente sind im Quelltext noch vorhanden, nur visuell ausgeblendet."
