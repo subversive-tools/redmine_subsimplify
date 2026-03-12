@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.6] - 2026-03-12
+### Changed
+- Improved accessibility: `a.user` links are strictly disabled for screen readers and keyboard navigation when hidden.
+- Increased CSS specificity for simplified views, practically eliminating `!important` usage and preventing theme conflicts.
+- Made JavaScript module URL matching more robust for custom reverse proxy paths.
+- Removed dead fallback loops in JavaScript logic.
+
 ## [0.2.5] - 2026-03-12
 ### Added
 - Feature to completely disable and hide user profile links globally (`Hide Link to User Profile`).

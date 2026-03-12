@@ -3,169 +3,169 @@
  * Hides unwanted UI elements and cleans up the interface
  */
 
-body.simplified-view {
+body.simplified-view #wrapper #main {
   /* Base simplified view styles if needed */
 }
 
 /* ===== SIDEBAR ===== */
-body.rm-hide-sidebar #sidebar {
-  display: none !important;
+body.rm-hide-sidebar #wrapper #main #sidebar {
+  display: none;
 }
 
 /* Expand main content to full width when sidebar is hidden */
-body.rm-hide-sidebar #main {
-  margin-right: 0 !important;
+body.rm-hide-sidebar #wrapper #main {
+  margin-right: 0;
 }
 
-body.rm-hide-sidebar #content {
-  margin-right: 0 !important;
+body.rm-hide-sidebar #wrapper #main #content {
+  margin-right: 0;
 }
 
 /* ===== ISSUE FILTERS ===== */
-body.rm-hide-filters .query-form,
-body.rm-hide-filters #query_form,
-body.rm-hide-filters .filters,
-body.rm-hide-filters fieldset#filters,
-body.rm-hide-filters .query-columns,
-body.rm-hide-filters #query_form_with_buttons {
-  display: none !important;
+body.rm-hide-filters #wrapper #main .query-form,
+body.rm-hide-filters #wrapper #main #query_form,
+body.rm-hide-filters #wrapper #main .filters,
+body.rm-hide-filters #wrapper #main fieldset#filters,
+body.rm-hide-filters #wrapper #main .query-columns,
+body.rm-hide-filters #wrapper #main #query_form_with_buttons {
+  display: none;
 }
 
 /* Hide "Apply" and filter-related buttons */
-body.rm-hide-filters .buttons .icon-checked,
-body.rm-hide-filters .buttons .icon-reload {
-  display: none !important;
+body.rm-hide-filters #wrapper #main .buttons .icon-checked,
+body.rm-hide-filters #wrapper #main .buttons .icon-reload {
+  display: none;
 }
 
 /* ===== FOOTER ===== */
-body.rm-hide-footer #footer {
-  display: none !important;
+body.rm-hide-footer #wrapper #main #footer {
+  display: none;
 }
 
 /* ===== TOP MENU REDUCTION ===== */
 /* If hide_top_menu is enabled, hide most items */
-body.rm-hide-top-menu #top-menu>ul>li {
-  display: none !important;
+body.rm-hide-top-menu #wrapper #main #top-menu>ul>li {
+  display: none;
 }
 
 /* Show only home and projects */
-body.rm-hide-top-menu #top-menu>ul>li.home,
-body.rm-hide-top-menu #top-menu>ul>li.projects {
-  display: inline-block !important;
+body.rm-hide-top-menu #wrapper #main #top-menu>ul>li.home,
+body.rm-hide-top-menu #wrapper #main #top-menu>ul>li.projects {
+  display: inline-block;
 }
 
 /* "My Page" visibility - might want to keep it or hide it? 
    let's keep it visible unless my-account is hidden or implied logic changes */
-body.rm-hide-top-menu #top-menu>ul>li.my-page {
-  display: inline-block !important;
+body.rm-hide-top-menu #wrapper #main #top-menu>ul>li.my-page {
+  display: inline-block;
 }
 
 /* Hide "My Account" specifically if requested */
-body.rm-hide-my-account #top-menu a.my-account,
-body.rm-hide-my-account #account-nav .my-account {
-  display: none !important;
+body.rm-hide-my-account #wrapper #main #top-menu a.my-account,
+body.rm-hide-my-account #wrapper #main #account-nav .my-account {
+  display: none;
 }
 
 /* ===== MAIN MENU SIMPLIFICATION ===== */
 
 /* Hide Overview Tab in Project Menu */
-body.rm-hide-overview #main-menu ul li a.overview {
-  display: none !important;
+body.rm-hide-overview #wrapper #main-menu ul li a.overview {
+  display: none;
 }
 
 /* Hide the tab-buttons if only 1 tab is visible (handled by JS class) */
-body.rm-single-tab #main-menu {
-  background: none !important;
-  border: none !important;
-  margin-bottom: 0 !important;
+body.rm-single-tab #wrapper #main-menu {
+  background: none;
+  border: none;
+  margin-bottom: 0;
 }
 
-body.rm-single-tab #main-menu ul {
-  border-bottom: none !important;
+body.rm-single-tab #wrapper #main-menu ul {
+  border-bottom: none;
 }
 
-body.rm-single-tab #main-menu .tabs-buttons,
-body.rm-single-tab .tabs-buttons {
-  display: none !important;
+body.rm-single-tab #wrapper #main-menu .tabs-buttons,
+body.rm-single-tab #wrapper #main .tabs-buttons {
+  display: none;
 }
 
 /* ===== USER PROFILE PAGE ===== */
 /* Only apply these on the user profile page */
 
 /* Hide Projects List */
-body.controller-users.rm-hide-user-projects #projects,
-body.controller-users.rm-hide-user-projects .projects,
-body.controller-users.rm-hide-user-projects h3:has(+ #projects),
-body.controller-users.rm-hide-user-projects h3:has(+ .projects) {
-  display: none !important;
+body.controller-users.rm-hide-user-projects #wrapper #main #projects,
+body.controller-users.rm-hide-user-projects #wrapper #main .projects,
+body.controller-users.rm-hide-user-projects #wrapper #main h3:has(+ #projects),
+body.controller-users.rm-hide-user-projects #wrapper #main h3:has(+ .projects) {
+  display: none;
 }
 
 /* Hide Activity Stream */
-body.controller-users.rm-hide-user-activity #activity,
-body.controller-users.rm-hide-user-activity h3:has(+ #activity) {
-  display: none !important;
+body.controller-users.rm-hide-user-activity #wrapper #main #activity,
+body.controller-users.rm-hide-user-activity #wrapper #main h3:has(+ #activity) {
+  display: none;
 }
 
 /* Hide Issues / Tickets */
 /* Hides "Reported issues" link or similar */
-body.controller-users.rm-hide-user-issues .issue-report,
-body.controller-users.rm-hide-user-issues h3:has(+ .issue-report),
-body.controller-users.rm-hide-user-issues h3:has(~ .issue-report) {
-  display: none !important;
+body.controller-users.rm-hide-user-issues #wrapper #main .issue-report,
+body.controller-users.rm-hide-user-issues #wrapper #main h3:has(+ .issue-report),
+body.controller-users.rm-hide-user-issues #wrapper #main h3:has(~ .issue-report) {
+  display: none;
 }
 
 /* Hide Other Details (Personal Info) */
 /* Only hide the list of details, not the entire left column (which contains projects) */
-body.controller-users.rm-hide-user-others .splitcontentleft > ul,
-body.controller-users.rm-hide-user-others .splitcontentleft > div:not(#projects):not(.projects):not(.issue-report) {
-  display: none !important;
+body.controller-users.rm-hide-user-others #wrapper #main .splitcontentleft > ul,
+body.controller-users.rm-hide-user-others #wrapper #main .splitcontentleft > div:not(#projects):not(.projects):not(.issue-report) {
+  display: none;
 }
 
 /* Global: Disable User Profile Links */
 /* Makes links to user profiles behave and look like normal text */
-body.rm-hide-user-profile-links a.user {
-  pointer-events: none !important;
-  color: inherit !important;
-  text-decoration: none !important;
-  cursor: default !important;
+body.rm-hide-user-profile-links #wrapper #main a.user {
+  pointer-events: none;
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
 }
 
 /* Hide administration and help links */
-body.rm-hide-top-menu #top-menu>ul.account-menu>li:not(.login):not(.logout):not(.my-account) {
+body.rm-hide-top-menu #wrapper #main #top-menu>ul.account-menu>li:not(.login):not(.logout):not(.my-account) {
   /* This hides Help, etc. */
-  display: none !important;
+  display: none;
 }
 
 /* ===== CONTEXTUAL ACTIONS ===== */
 /* Hide extra action buttons in simplified view */
-body.simplified-view .contextual .icon-add,
-body.simplified-view .contextual .icon-copy,
-body.simplified-view .contextual .icon-del,
-body.simplified-view .contextual .icon-edit {
+body.simplified-view #wrapper #main .contextual .icon-add,
+body.simplified-view #wrapper #main .contextual .icon-copy,
+body.simplified-view #wrapper #main .contextual .icon-del,
+body.simplified-view #wrapper #main .contextual .icon-edit {
   /* Selective hiding - adjust as needed */
 }
 
 /* Hide export options */
-body.simplified-view .other-formats,
-body.simplified-view p.other-formats {
-  display: none !important;
+body.simplified-view #wrapper #main .other-formats,
+body.simplified-view #wrapper #main p.other-formats {
+  display: none;
 }
 
 /* ===== ISSUE LIST SIMPLIFICATION ===== */
 /* Hide column configuration */
-body.simplified-view .query-totals {
-  display: none !important;
+body.simplified-view #wrapper #main .query-totals {
+  display: none;
 }
 
 /* Hide bulk edit checkboxes */
-body.simplified-view table.issues td.checkbox,
-body.simplified-view table.issues th.checkbox {
-  display: none !important;
+body.simplified-view #wrapper #main table.issues td.checkbox,
+body.simplified-view #wrapper #main table.issues th.checkbox {
+  display: none;
 }
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media screen and (max-width: 899px) {
-  body.rm-hide-sidebar #sidebar {
-    display: none !important;
+  body.rm-hide-sidebar #wrapper #main #sidebar {
+    display: none;
   }
 }

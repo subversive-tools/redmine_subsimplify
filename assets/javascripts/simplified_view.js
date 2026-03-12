@@ -56,6 +56,7 @@
 
     if (config.hideUserProfileLinks) {
       document.body.classList.add('rm-hide-user-profile-links');
+      disableUserProfileLinks();
     }
 
     // Hide project menu items based on allowed modules (Whitelist)
@@ -154,13 +155,7 @@
       }
     }
 
-    // 2. Fallback: try to match standard class names if no mapping exists
-    // (This covers cases where class name matches module name perfectly)
-    for (var i = 0; i < classes.length; i++) {
-      // ... (simplified check)
-    }
-
-    // 3. Fallback: Try to extract from href
+    // 2. Fallback: Try to extract from href
     var href = link.getAttribute('href') || '';
 
     // Check for activity
@@ -169,7 +164,7 @@
     // Check for issues (catch-all)
     if (href.indexOf('/issues') !== -1) return 'issue_tracking';
 
-    var match = href.match(/\/projects\/[^\/]+\/([^\/\?]+)/);
+    var match = href.match(/\/projects\/[^\/]+\/([a-zA-Z0-9_-]+)/);
     if (match) {
       // Map URL segments to module names if needed
       var segment = match[1];
@@ -217,6 +212,18 @@
         }
       }
     }
+  }
+
+  /**
+   * Disable user profile links logic for screenreaders/keyboard access
+   */
+  function disableUserProfileLinks() {
+    var userLinks = document.querySelectorAll('a.user');
+    userLinks.forEach(function (link) {
+      link.removeAttribute('href');
+      link.setAttribute('tabindex', '-1');
+      link.setAttribute('aria-hidden', 'true');
+    });
   }
 
 })();

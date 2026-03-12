@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_subsimplify do
   name 'Redmine Subsimplify'
   author 'Stefan Mischke'
   description 'Provides a simplified UI for specific users - showing only Wiki and Issues with minimal UI clutter'
-  version '0.2.5'
+  version '0.2.6'
   url 'https://github.com/modoq/redmine_subsimplify'
   author_url 'https://github.com/modoq'
   
