@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.2.7] - 2026-05-19
+
+### Added
+- Unit tests for `RedmineSubsimplify::Configuration` — covers `simplified_user?` (nil/admin), and all `hide_*?` setting methods.
+
 ## [0.2.6] - 2026-03-12
 ### Changed
 - Improved accessibility: `a.user` links are strictly disabled for screen readers and keyboard navigation when hidden.
