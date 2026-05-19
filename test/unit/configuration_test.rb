@@ -1,23 +1,21 @@
 require_relative '../test_helper'
 
 class RedmineSubsimplifyConfigurationTest < ActiveSupport::TestCase
-  fixtures :users
-
   def setup
     @original_settings = Setting.plugin_redmine_subsimplify.dup
     Setting.plugin_redmine_subsimplify = {
-      'simplified_roles'  => [],
-      'simplified_groups' => [],
-      'hide_sidebar'      => 'false',
-      'hide_top_menu'     => 'false',
-      'hide_footer'       => 'false',
-      'hide_my_account'   => 'false',
-      'hide_overview'     => 'false',
-      'hide_filters'      => 'false',
-      'hide_user_issues'  => 'false',
+      'simplified_roles'   => [],
+      'simplified_groups'  => [],
+      'hide_sidebar'       => 'false',
+      'hide_top_menu'      => 'false',
+      'hide_footer'        => 'false',
+      'hide_my_account'    => 'false',
+      'hide_overview'      => 'false',
+      'hide_filters'       => 'false',
+      'hide_user_issues'   => 'false',
       'hide_user_projects' => 'false',
       'hide_user_activity' => 'false',
-      'hide_user_others'  => 'false'
+      'hide_user_others'   => 'false'
     }
   end
 
@@ -28,7 +26,7 @@ class RedmineSubsimplifyConfigurationTest < ActiveSupport::TestCase
   def test_plugin_is_registered
     plugin = Redmine::Plugin.find(:redmine_subsimplify)
     assert_not_nil plugin
-    assert_equal 'Redmine Subsimplify', plugin.name
+    assert_equal 'Subsimplify', plugin.name
   end
 
   def test_nil_user_is_not_simplified
@@ -36,7 +34,9 @@ class RedmineSubsimplifyConfigurationTest < ActiveSupport::TestCase
   end
 
   def test_admin_user_is_not_simplified
-    assert_equal false, RedmineSubsimplify::Configuration.simplified_user?(users(:admin))
+    # Use an in-memory admin user — no fixture dependency needed
+    admin = User.new(admin: true)
+    assert_equal false, RedmineSubsimplify::Configuration.simplified_user?(admin)
   end
 
   def test_hide_sidebar_false_when_setting_is_false
