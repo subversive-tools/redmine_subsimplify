@@ -4,99 +4,91 @@
 ![Redmine](https://img.shields.io/badge/Redmine-5.0%20%7C%206.0-red.svg?logo=redmine)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-A Redmine plugin that provides a simplified UI for specific user roles or groups. It hides unnecessary menus, sidebars, and explicitly restricts access to modules other than "Issues" and "Wiki".
+A Redmine plugin that presents a simplified interface for selected roles or groups — hiding menus, sidebars, and modules that are irrelevant to external stakeholders, without touching permissions or core functionality.
 
----
+> Built for mixed-audience teams: keep the full interface for power users, reduce friction for everyone else.
 
-## 🚀 Features
+## Screenshots
 
-- **🎭 Role-Based Simplification**: Define exactly which user roles or groups see the simplified interface.
-- **🧹 Clean Layout**: Automatically hide the Sidebar, Footer, and complex Top Menu elements.
-- **🚫 Distraction-Free**: Hides Issue Filters, "My Account", and other advanced Redmine features.
-- **📦 Modular Visibility**: Configure exactly which project modules (e.g., Issues, Wiki) stay visible.
-- **↪️ Smart Redirect**: Automatically redirects users away from the "Overview" page to the first allowed module (e.g., directly to Issues).
-- **👤 Profile Privacy**: Optionally hide tabs like "Projects", "Activity", and "Reported Issues" on user profiles.
-- **🎨 Modern & Non-Destructive**: Uses CSS/JS to simplify the UI without altering Redmine's core functionality or permissions.
-- **🌍 Localized**: Available in English and German.
+*(Screenshots coming soon)*
 
-## 📸 Screenshots
+## Features
 
-| Standard View | Simplified View |
-|:---:|:---:|
-| *(Add screenshot here)* | *(Add screenshot here)* |
+- **Role-based simplification**: define exactly which roles or groups see the simplified interface
+- **Clean layout**: hide sidebar, footer, and complex top menu elements
+- **Module whitelist**: configure which project modules stay visible — new modules from other plugins are hidden by default until explicitly allowed
+- **Smart redirect**: automatically send users from the Overview page to their first allowed module (e.g. directly to Issues)
+- **Profile privacy**: optionally hide Projects, Activity, and Reported Issues tabs on user profiles
+- **Non-destructive**: uses CSS/JS only — no Redmine permissions or core data are changed
+- **Admin override**: administrators always see the full standard interface regardless of settings
+- **Localised**: English and German included
 
-## 📦 Installation
+## Requirements
+
+- Redmine 5.0 or higher
+
+## Installation
 
 > [!IMPORTANT]
 > The plugin directory **MUST** be named `redmine_subsimplify` for assets to load correctly.
 
-1.  **Clone the repository** into your plugins directory:
-    ```bash
-    cd /path/to/redmine/plugins
-    git clone https://github.com/yourusername/redmine_subsimplify.git redmine_subsimplify
-    ```
+1. **Clone** into your plugins directory:
+   ```bash
+   cd /path/to/redmine/plugins
+   git clone https://github.com/subversive-tools/redmine_subsimplify.git redmine_subsimplify
+   ```
 
-2.  **Restart Redmine**.
-    ```bash
-    # Docker
-    docker-compose restart redmine
-    
-    # Or for local installations
-    touch tmp/restart.txt
-    ```
+2. **Restart Redmine**.
 
-3.  **Configure the plugin**
+## Configuration
 
-## ⚙️ Configuration
+Navigate to **Administration > Plugins > Subsimplify > Configure**.
 
-Navigate to **Administration > Plugins > Redmine Subsimplify > Configure**.
-
-### General Settings
+### Target audience
 
 | Option | Description |
 |:---|:---|
-| **Roles with Simplified View** | Select which User Roles should see the simplified interface. |
-| **Groups with Simplified View** | Select which User Groups should see the simplified interface. (Logic: Role OR Group match) |
+| **Roles with simplified view** | Select which roles see the simplified interface |
+| **Groups with simplified view** | Select which groups see the simplified interface (Role OR Group match) |
 
-### UI Simplification
-
-| Option | Description |
-|:---|:---|
-| **Hide Standard Sidebar** | Completely removes the right-hand sidebar. |
-| **Hide Issue Filters** | Hides the filter box above issue lists (queries). |
-| **Simplify Top Menu** | Hides most top menu items, leaving only "Home" and "Projects". |
-| **Hide Footer** | Removes the Redmine footer. |
-| **Hide 'My Account'** | Hides the link to the user's account settings. |
-| **Hide Project Overview** |  Hides the "Overview" tab and enables **Smart Redirect**. |
-
-### Allowed Modules
+### UI simplification
 
 | Option | Description |
 |:---|:---|
-| **Allowed Project Modules** | **Strict Whitelist**: Only checked modules remain visible. New modules from other plugins are **hidden by default** until explicitly allowed here. |
+| **Hide standard sidebar** | Removes the right-hand sidebar |
+| **Hide issue filters** | Hides the filter box above issue lists |
+| **Simplify top menu** | Leaves only Home and Projects in the top menu |
+| **Hide footer** | Removes the Redmine footer |
+| **Hide "My Account"** | Hides the link to account settings |
+| **Hide project overview** | Hides the Overview tab and enables Smart Redirect |
 
-### User Profile Privacy
+### Allowed modules
 
 | Option | Description |
 |:---|:---|
-| **Hide Issues Tab** | Hides the list of reported issues on the user profile. |
-| **Hide Projects Tab** | Hides the list of projects on the user profile. |
-| **Hide Activity Tab** | Hides the user's activity stream on the profile. |
-| **Hide Other Details** | Hides additional personal information fields. |
+| **Allowed project modules** | Strict whitelist — only checked modules remain visible for simplified users |
+
+### User profile privacy
+
+| Option | Description |
+|:---|:---|
+| **Hide Issues tab** | Hides reported issues on user profiles |
+| **Hide Projects tab** | Hides project list on user profiles |
+| **Hide Activity tab** | Hides activity stream on user profiles |
 
 > [!NOTE]
-> **Admin Override**: Administrators (users with the "Administrator" flag) will **always** see the full standard Redmine interface, regardless of these settings.
+> Administrators always see the complete Redmine interface, regardless of these settings.
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please fork the repository and submit a Pull Request.
+Contributions are welcome — please fork the repository and open a Pull Request.
 
-1.  Fork it
-2.  Create your feature branch (`git checkout -b feature/my-new-feature`)
-3.  Commit your changes (`git commit -am 'Add some feature'`)
-4.  Push to the branch (`git push origin feature/my-new-feature`)
-5.  Create a new Pull Request
+1. Fork it
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-## 📄 License
+## License
 
-This plugin is open source software licensed under the [MIT license](LICENSE).
+[MIT License](LICENSE) — Copyright (c) 2026 Stefan Mischke
