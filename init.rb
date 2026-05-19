@@ -2,10 +2,10 @@
 # Provides a simplified UI for users with specific roles
 
 Redmine::Plugin.register :redmine_subsimplify do
-  name 'Redmine Subsimplify'
+  name 'Subsimplify'
   author 'Stefan Mischke'
   description 'Provides a simplified UI for specific users - showing only Wiki and Issues with minimal UI clutter'
-  version '0.2.7'
+  version '0.2.8'
   url 'https://github.com/subversive-tools/redmine_subsimplify'
   author_url 'https://github.com/modoq'
   
